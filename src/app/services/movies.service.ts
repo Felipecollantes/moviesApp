@@ -9,7 +9,10 @@ const API_KEY = environment.apiKey;
   providedIn: 'root',
 })
 export class MoviesService {
-  constructor(private http: HttpClient) {}
+  private page: number;
+  constructor(private http: HttpClient) {
+    this.page = 0;
+  }
 
   private ejecutarQuery<T>(query: string) {
     query = URL + query;
@@ -19,6 +22,7 @@ export class MoviesService {
   }
 
   getFeature() {
+    this.page++;
     const today = new Date();
     const lastDay = new Date(
       today.getFullYear(),
@@ -40,7 +44,7 @@ export class MoviesService {
 
     // eslint-disable-next-line max-len
     return this.ejecutarQuery(
-      `/discover/movie?primary_release_date.gte=&primary_release_date.lte=2019-01-31`
+      `/discover/movie?primary_release_date.gte=&primary_release_date.lte=2019-01-31&page=${this.page}`
       // `/discover/movie?primary_release_date.gte=${begin}&primary_release_date.lte=${final}`
     );
   }

@@ -14,9 +14,17 @@ export class Tab1Page implements OnInit {
   }
 
   ngOnInit() {
+    this.getPeliculas();
+  }
+
+  cargarMas() {
+    this.getPeliculas();
+  }
+
+  getPeliculas() {
     this.movieService.getFeature().subscribe((resp: RespuestaMovie) => {
-      console.log('respuesta', resp);
-      this.peliculaRecientes = resp.results;
+      this.peliculaRecientes.push(...resp.results);
+      console.log(this.peliculaRecientes);
     });
   }
 }

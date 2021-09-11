@@ -1,7 +1,13 @@
-<ion-slides [options]="slideOpts">
+<ion-slides pager="true" [options]="slideOpts">
   <ion-slide class="prueba" *ngFor="let pelicula of peliculas">
     <ion-card>
       <img class="poster" [src]="pelicula.poster_path | imagen" />
     </ion-card>
+  </ion-slide>
+
+  <ion-slide class="slide-plus">
+    <ion-button class="btn-plus" expand="full" size="large" (click)="onClick()">
+      <ion-icon name="add" slot="icon-only"></ion-icon>
+    </ion-button>
   </ion-slide>
 </ion-slides>

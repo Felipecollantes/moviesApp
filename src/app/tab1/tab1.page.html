@@ -18,5 +18,8 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <app-slideshow-poster [peliculas]="peliculaRecientes"></app-slideshow-poster>
+  <app-slideshow-poster
+    [peliculas]="peliculaRecientes"
+    (cargarMas)="cargarMas()"
+  ></app-slideshow-poster>
 </ion-content>
