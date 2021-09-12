@@ -42,7 +42,6 @@ export class MoviesService {
     const begin = `${today.getFullYear()} - ${monthString}-01`;
     const final = `${today.getFullYear()} - ${monthString}-${lastDay}`;
 
-    // eslint-disable-next-line max-len
     return this.ejecutarQuery(
       `/discover/movie?primary_release_date.gte=&primary_release_date.lte=2019-01-31&page=${this.page}`
       // `/discover/movie?primary_release_date.gte=${begin}&primary_release_date.lte=${final}`
