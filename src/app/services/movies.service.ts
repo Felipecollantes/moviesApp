@@ -15,6 +15,11 @@ export class MoviesService {
     this.page = 0;
   }
 
+  /**
+   * Build the urls
+   * @param query url
+   * @returns url
+   */
   private ejecutarQuery<T>(query: string) {
     query = URL + query;
     query += `&api_key=${API_KEY}&language=es&include_image_language=es`;
@@ -22,21 +27,40 @@ export class MoviesService {
     return this.http.get(query);
   }
 
-  getFeature() {
+  /**
+   * Url construction
+   * @returns URL
+   */
+  getData() {
     this.page++;
     return this.ejecutarQuery(
       `/discover/movie?primary_release_date.gte=&primary_release_date.lte=2021-01-31&page=${this.page}`
     );
   }
 
+  /**
+   * Build the url for the movie details
+   * @param id movie
+   * @returns Movie details
+   */
   getMovieDetails(id: number) {
     return this.ejecutarQuery<DetallePelicula>(`/movie/${id}?a=1`);
   }
 
+  /**
+   * Build the url for the movie actors
+   * @param id actor
+   * @returns actors
+   */
   getActors(id: number) {
     return this.ejecutarQuery(`/movie/${id}/credits?a=1`);
   }
 
+  /**
+   * Build the search url
+   * @param texto searched text
+   * @returns movies
+   */
   searchMovies(texto: string) {
     return this.ejecutarQuery(`/search/movie?query=${texto}`);
   }

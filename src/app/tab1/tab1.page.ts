@@ -17,12 +17,18 @@ export class Tab1Page implements OnInit {
     this.getPeliculas();
   }
 
+  /**
+   * Return more movies
+   */
   cargarMas() {
     this.getPeliculas();
   }
 
+  /**
+   * Request to receive the movies
+   */
   getPeliculas() {
-    this.movieService.getFeature().subscribe((resp: RespuestaMovie) => {
+    this.movieService.getData().subscribe((resp: RespuestaMovie) => {
       this.peliculaRecientes.push(...resp.results);
     });
   }
