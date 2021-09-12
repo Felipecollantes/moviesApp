@@ -30,6 +30,11 @@ export class Tab2Page {
     this.searching = false;
   }
 
+  /**
+   * Method that returns the list of movies by the searched text
+   * @param event search text
+   * @returns movies
+   */
   buscar(event) {
     const valor = event.detail.value;
     if (valor.length === 0) {
@@ -45,6 +50,10 @@ export class Tab2Page {
     });
   }
 
+  /**
+   * we create a modal of the movie details with the details component
+   * @param id movie
+   */
   async detail(id: number) {
     const modal = await this.modal.create({
       component: DetallesComponent,
