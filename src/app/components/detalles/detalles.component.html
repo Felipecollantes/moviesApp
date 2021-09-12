@@ -15,7 +15,7 @@
           />
         </ion-card>
       </ion-col>
-      <ion-col>
+      <ion-col class="width-limit">
         <ion-item>
           <ion-icon slot="start" color="primary" name="thumbs-up"> </ion-icon>
           <ion-label> Rating </ion-label>
@@ -67,9 +67,11 @@
   </ion-grid>
   <ion-slides [options]="options">
     <ion-slide *ngFor="let actor of actors">
-      <ion-card class="card-actor">
-        <img [src]="actor.profile_path | imagen" />
-        <!-- <ion-label class="actor-name">{{ actor.name }}</ion-label> -->
+      <ion-card>
+        <img class="card-actor" [src]="actor.profile_path | imagen" />
+        <ion-card-header>
+          <ion-card-subtitle>{{ actor.name }}</ion-card-subtitle>
+        </ion-card-header>
       </ion-card>
     </ion-slide>
   </ion-slides>

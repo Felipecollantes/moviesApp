@@ -28,6 +28,7 @@ export class SlideshowBackdropComponent implements OnInit {
       componentProps: {
         id,
       },
+      cssClass: 'fullscreen',
     });
 
     modal.present();
