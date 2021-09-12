@@ -14,6 +14,7 @@ export class SlideshowBackdropComponent implements OnInit {
 
   constructor(private modal: ModalController) {
     this.peliculas = [];
+    // Options for the ion-slide
     this.slideOpts = {
       slidesPerview: 3.2,
       freeMode: true,
@@ -22,6 +23,10 @@ export class SlideshowBackdropComponent implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   * we create a modal of the movie details with the details component
+   * @param id of the film
+   */
   async detalle(id: number) {
     const modal = await this.modal.create({
       component: DetallesComponent,

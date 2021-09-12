@@ -6,7 +6,6 @@ import {
   RespuestaCredits,
 } from 'src/app/interfaces/interfaces';
 import { MoviesService } from 'src/app/services/movies.service';
-import { Thumbs } from 'swiper';
 
 @Component({
   selector: 'app-detalles',
@@ -27,6 +26,7 @@ export class DetallesComponent implements OnInit {
     this.pelicula = {};
     this.hidden = 150;
     this.actors = [];
+    // Options for the ion-slide
     this.options = {
       slidesPerview: 3.3,
       freeMode: true,
@@ -35,11 +35,22 @@ export class DetallesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getDetails();
+    this.getActors();
+  }
+
+  /**
+   * Returns the details of the movie
+   */
+  getDetails() {
     this.movieService.getMovieDetails(this.id).subscribe((response) => {
-      console.log(response);
       this.pelicula = response;
     });
-
+  }
+  /**
+   * Returns all the actors in the movie
+   */
+  getActors() {
     this.movieService
       .getActors(this.id)
       .subscribe((response: RespuestaCredits) => {

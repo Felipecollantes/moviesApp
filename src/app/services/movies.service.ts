@@ -24,7 +24,6 @@ export class MoviesService {
 
   getFeature() {
     this.page++;
-
     return this.ejecutarQuery(
       `/discover/movie?primary_release_date.gte=&primary_release_date.lte=2021-01-31&page=${this.page}`
     );

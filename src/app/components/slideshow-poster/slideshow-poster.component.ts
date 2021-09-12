@@ -15,6 +15,7 @@ export class SlideshowPosterComponent implements OnInit {
 
   constructor(private modal: ModalController) {
     this.peliculas = [];
+    // Options for the ion-slide
     this.slideOpts = {
       slidesPerview: 3.3,
       freeMode: true,
@@ -23,10 +24,17 @@ export class SlideshowPosterComponent implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   * click we want to show more movies
+   */
   onClick() {
     this.cargarMas.emit();
   }
 
+  /**
+   * we create a modal of the movie details with the details component
+   * @param id of the movie
+   */
   async detalle(id: number) {
     const modal = await this.modal.create({
       component: DetallesComponent,
