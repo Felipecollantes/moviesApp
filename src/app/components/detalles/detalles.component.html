@@ -15,7 +15,11 @@
   <ion-label class="titulo">
     <h1>{{ pelicula.title }}</h1>
   </ion-label>
-  <img [src]="pelicula.backdrop_path | imagen" *ngIf="pelicula.backdrop_path" />
+  <img
+    class="fondo"
+    [src]="pelicula.backdrop_path | imagen"
+    *ngIf="pelicula.backdrop_path"
+  />
   <!-- Picture of the movie -->
   <ion-grid>
     <ion-row>
@@ -56,12 +60,14 @@
           }}<span *ngIf="hidden !== 5000">...</span>
         </ion-label>
         <ion-label
+          class="pointer"
           color="primary"
           (click)="hidden = 5000"
           *ngIf="hidden !== 5000"
           >&nbsp;Leer más!</ion-label
         >
         <ion-label
+          class="pointer"
           color="primary"
           (click)="hidden = 150"
           *ngIf="hidden === 5000"

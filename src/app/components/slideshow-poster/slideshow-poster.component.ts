@@ -41,6 +41,7 @@ export class SlideshowPosterComponent implements OnInit {
       componentProps: {
         id,
       },
+      cssClass: 'fullscreen',
     });
 
     modal.present();

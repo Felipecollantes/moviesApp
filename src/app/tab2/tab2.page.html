@@ -24,7 +24,7 @@
   </ion-grid>
   <ion-list *ngIf="movies.length === 0">
     <ion-list-header>
-      <ion-label>Ideas</ion-label>
+      <ion-label>Ejemplos</ion-label>
     </ion-list-header>
     <ion-item *ngFor="let idea of ideas" (click)="textoBuscar = idea">
       <ion-label color="primary">{{idea}}</ion-label>
