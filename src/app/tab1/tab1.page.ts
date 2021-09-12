@@ -24,7 +24,6 @@ export class Tab1Page implements OnInit {
   getPeliculas() {
     this.movieService.getFeature().subscribe((resp: RespuestaMovie) => {
       this.peliculaRecientes.push(...resp.results);
-      console.log(this.peliculaRecientes);
     });
   }
 }
