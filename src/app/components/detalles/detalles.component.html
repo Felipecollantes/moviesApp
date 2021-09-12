@@ -45,7 +45,13 @@
           color="primary"
           (click)="hidden = 5000"
           *ngIf="hidden !== 5000"
-          >Leer más!</ion-label
+          >&nbsp;Leer más!</ion-label
+        >
+        <ion-label
+          color="primary"
+          (click)="hidden = 150"
+          *ngIf="hidden === 5000"
+          >&nbsp;Leer menos!</ion-label
         >
       </ion-col>
     </ion-row>

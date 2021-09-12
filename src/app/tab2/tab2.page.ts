@@ -34,6 +34,7 @@ export class Tab2Page {
     const valor = event.detail.value;
     if (valor.length === 0) {
       this.searching = false;
+      this.movies = [];
       return;
     }
 

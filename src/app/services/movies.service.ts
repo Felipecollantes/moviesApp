@@ -24,28 +24,9 @@ export class MoviesService {
 
   getFeature() {
     this.page++;
-    const today = new Date();
-    const lastDay = new Date(
-      today.getFullYear(),
-      today.getMonth() + 1,
-      0
-    ).getDate();
-    const month = today.getMonth() + 1;
-
-    let monthString;
-
-    if (month < 10) {
-      monthString = '0' + month;
-    } else {
-      monthString = month;
-    }
-
-    const begin = `${today.getFullYear()} - ${monthString}-01`;
-    const final = `${today.getFullYear()} - ${monthString}-${lastDay}`;
 
     return this.ejecutarQuery(
-      `/discover/movie?primary_release_date.gte=&primary_release_date.lte=2019-01-31&page=${this.page}`
-      // `/discover/movie?primary_release_date.gte=${begin}&primary_release_date.lte=${final}`
+      `/discover/movie?primary_release_date.gte=&primary_release_date.lte=2021-01-31&page=${this.page}`
     );
   }
 
