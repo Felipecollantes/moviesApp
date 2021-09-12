@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { DetallePelicula, RespuestaCredits } from '../interfaces/interfaces';
 
 const URL = environment.url;
 const API_KEY = environment.apiKey;
@@ -46,5 +47,13 @@ export class MoviesService {
       `/discover/movie?primary_release_date.gte=&primary_release_date.lte=2019-01-31&page=${this.page}`
       // `/discover/movie?primary_release_date.gte=${begin}&primary_release_date.lte=${final}`
     );
+  }
+
+  getMovieDetails(id: number) {
+    return this.ejecutarQuery<DetallePelicula>(`/movie/${id}?a=1`);
+  }
+
+  getActors(id: number) {
+    return this.ejecutarQuery(`/movie/${id}/credits?a=1`);
   }
 }
