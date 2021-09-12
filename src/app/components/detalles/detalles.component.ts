@@ -59,6 +59,9 @@ export class DetallesComponent implements OnInit {
       });
   }
 
+  /**
+   * Close the modal
+   */
   return() {
     this.modalController.dismiss();
   }
