@@ -45,6 +45,7 @@ export class DetallesComponent implements OnInit {
   getDetails() {
     this.movieService.getMovieDetails(this.id).subscribe((response) => {
       this.pelicula = response;
+      console.log(response);
     });
   }
   /**
@@ -54,7 +55,6 @@ export class DetallesComponent implements OnInit {
     this.movieService
       .getActors(this.id)
       .subscribe((response: RespuestaCredits) => {
-        console.log(response.cast);
         this.actors = response.cast;
       });
   }
